@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  client:
+    build: ./client
+    restart: always
+    ports:
+      - '3000:3000'
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+  server:
+    build: ./server
+    restart: always
+    ports:
+      - '5000:5000'
+    volumes:
+      - /app/node_modules
+      - ./server:/app
